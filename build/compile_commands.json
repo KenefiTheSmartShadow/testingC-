@@ -1,9 +1,9 @@
 [
 {
   "directory": "/home/kenefi/Documents/source/repos/testingC++/build",
-  "command": "/usr/bin/c++  -I/home/kenefi/Documents/source/repos/testingC++/thirdparty/glad/include  -o CMakeFiles/app.dir/main.cpp.o -c /home/kenefi/Documents/source/repos/testingC++/main.cpp",
-  "file": "/home/kenefi/Documents/source/repos/testingC++/main.cpp",
-  "output": "CMakeFiles/app.dir/main.cpp.o"
+  "command": "/usr/bin/c++ -DSHADER_DIR=\\\"/home/kenefi/Documents/source/repos/testingC++/resources/shaders\\\" -I/home/kenefi/Documents/source/repos/testingC++/thirdparty/glad/include  -o CMakeFiles/app.dir/src/main.cpp.o -c /home/kenefi/Documents/source/repos/testingC++/src/main.cpp",
+  "file": "/home/kenefi/Documents/source/repos/testingC++/src/main.cpp",
+  "output": "CMakeFiles/app.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/kenefi/Documents/source/repos/testingC++/build/thirdparty/glad",

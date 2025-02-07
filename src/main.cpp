@@ -3,6 +3,8 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
+#include "shader.h"
+
 // Vertex Shader Source Code
 const char *vertexShaderSource = R"(
     #version 330 core
@@ -55,32 +57,18 @@ int main() {
     return -1;
   }
 
-  // Vertex Shader
-  unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-  glCompileShader(vertexShader);
-
-  // Fragment Shader
-  unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-  glCompileShader(fragmentShader);
-
-  // Shader Program
-  unsigned int shaderProgram = glCreateProgram();
-  glAttachShader(shaderProgram, vertexShader);
-  glAttachShader(shaderProgram, fragmentShader);
-  glLinkProgram(shaderProgram);
-
-  // Delete shaders (no longer needed)
-  glDeleteShader(vertexShader);
-  glDeleteShader(fragmentShader);
-
   // Triangle Vertices
   float vertices[] = {
       -0.5f, -0.5f, 0.0f, // Bottom left
       0.5f,  -0.5f, 0.0f, // Bottom right
       0.0f,  0.5f,  0.0f  // Top
   };
+
+  //
+  //  SHADER
+  //
+  Shader paddleShader("../resources/shaders/paddle.vert",
+                      "../resources/shaders/paddle.frag");
 
   // Create VAO and VBO
   unsigned int VAO, VBO;
@@ -107,7 +95,7 @@ int main() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     // Use shader program and draw triangle
-    glUseProgram(shaderProgram);
+    glUseProgram(paddleShader.ID);
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindVertexArray(0);
@@ -120,7 +108,7 @@ int main() {
   // Cleanup
   glDeleteVertexArrays(1, &VAO);
   glDeleteBuffers(1, &VBO);
-  glDeleteProgram(shaderProgram);
+  glDeleteProgram(paddleShader.ID);
   glfwDestroyWindow(_window);
   glfwTerminate();
 

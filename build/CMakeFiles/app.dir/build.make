@@ -72,28 +72,28 @@ include CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/codegen:
 .PHONY : CMakeFiles/app.dir/codegen
 
-CMakeFiles/app.dir/main.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/main.cpp
-CMakeFiles/app.dir/main.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kenefi/Documents/source/repos/testingC++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/main.cpp.o -MF CMakeFiles/app.dir/main.cpp.o.d -o CMakeFiles/app.dir/main.cpp.o -c /home/kenefi/Documents/source/repos/testingC++/main.cpp
+CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/src/main.cpp
+CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kenefi/Documents/source/repos/testingC++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.o -MF CMakeFiles/app.dir/src/main.cpp.o.d -o CMakeFiles/app.dir/src/main.cpp.o -c /home/kenefi/Documents/source/repos/testingC++/src/main.cpp
 
-CMakeFiles/app.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kenefi/Documents/source/repos/testingC++/main.cpp > CMakeFiles/app.dir/main.cpp.i
+CMakeFiles/app.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kenefi/Documents/source/repos/testingC++/src/main.cpp > CMakeFiles/app.dir/src/main.cpp.i
 
-CMakeFiles/app.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kenefi/Documents/source/repos/testingC++/main.cpp -o CMakeFiles/app.dir/main.cpp.s
+CMakeFiles/app.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kenefi/Documents/source/repos/testingC++/src/main.cpp -o CMakeFiles/app.dir/src/main.cpp.s
 
 # Object files for target app
 app_OBJECTS = \
-"CMakeFiles/app.dir/main.cpp.o"
+"CMakeFiles/app.dir/src/main.cpp.o"
 
 # External object files for target app
 app_EXTERNAL_OBJECTS =
 
-app: CMakeFiles/app.dir/main.cpp.o
+app: CMakeFiles/app.dir/src/main.cpp.o
 app: CMakeFiles/app.dir/build.make
 app: CMakeFiles/app.dir/compiler_depend.ts
 app: /usr/lib/libglfw.so.3.4
