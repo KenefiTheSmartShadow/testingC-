@@ -1,0 +1,6 @@
+/home/kenefi/Documents/source/repos/testingC++/build/CMakeFiles/app.dir
+/home/kenefi/Documents/source/repos/testingC++/build/CMakeFiles/edit_cache.dir
+/home/kenefi/Documents/source/repos/testingC++/build/CMakeFiles/rebuild_cache.dir
+/home/kenefi/Documents/source/repos/testingC++/build/thirdparty/glad/CMakeFiles/glad.dir
+/home/kenefi/Documents/source/repos/testingC++/build/thirdparty/glad/CMakeFiles/edit_cache.dir
+/home/kenefi/Documents/source/repos/testingC++/build/thirdparty/glad/CMakeFiles/rebuild_cache.dir

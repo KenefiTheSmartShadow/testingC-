@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/app.dir/link.d CMakeFiles/app.dir/main.cpp.o -o app  /usr/lib/libglfw.so.3.4 thirdparty/glad/libglad.a -ldl /usr/lib/libGLX.so /usr/lib/libOpenGL.so

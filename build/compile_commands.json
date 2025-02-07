@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/kenefi/Documents/source/repos/testingC++/build",
+  "command": "/usr/bin/c++  -I/home/kenefi/Documents/source/repos/testingC++/thirdparty/glad/include  -o CMakeFiles/app.dir/main.cpp.o -c /home/kenefi/Documents/source/repos/testingC++/main.cpp",
+  "file": "/home/kenefi/Documents/source/repos/testingC++/main.cpp",
+  "output": "CMakeFiles/app.dir/main.cpp.o"
+},
+{
+  "directory": "/home/kenefi/Documents/source/repos/testingC++/build/thirdparty/glad",
+  "command": "/usr/bin/cc  -I/home/kenefi/Documents/source/repos/testingC++/thirdparty/glad/include  -o CMakeFiles/glad.dir/src/gl.c.o -c /home/kenefi/Documents/source/repos/testingC++/thirdparty/glad/src/gl.c",
+  "file": "/home/kenefi/Documents/source/repos/testingC++/thirdparty/glad/src/gl.c",
+  "output": "thirdparty/glad/CMakeFiles/glad.dir/src/gl.c.o"
+}
+]
