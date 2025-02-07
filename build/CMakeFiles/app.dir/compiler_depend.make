@@ -209,10 +209,56 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h
 
+app: /usr/lib/Scrt1.o \
+  /usr/lib/crti.o \
+  /usr/lib/crtn.o \
+  /usr/lib/libc.so \
+  /usr/lib/libdl.a \
+  /usr/lib/libgcc_s.so \
+  /usr/lib/libgcc_s.so.1 \
+  /usr/lib/libm.so \
+  /usr/lib/libstdc++.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/libgcc.a \
+  /usr/lib/ld-linux-x86-64.so.2 \
+  /usr/lib/libGLX.so \
+  /usr/lib/libGLdispatch.so.0 \
+  /usr/lib/libOpenGL.so \
+  /usr/lib/libX11.so.6 \
+  /usr/lib/libXau.so.6 \
+  /usr/lib/libXdmcp.so.6 \
+  /usr/lib/libc.so.6 \
+  /usr/lib/libc_nonshared.a \
+  /usr/lib/libglfw.so.3.4 \
+  /usr/lib/libm.so.6 \
+  /usr/lib/libmvec.so.1 \
+  /usr/lib/libxcb.so.1 \
+  CMakeFiles/app.dir/main.cpp.o \
+  thirdparty/glad/libglad.a
+
+
+/usr/lib/libc_nonshared.a:
+
+/usr/lib/libc.so.6:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/libgcc.a:
+
+/usr/lib/libGLX.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o:
+
+/usr/lib/libm.so:
+
+/usr/lib/libc.so:
+
+/usr/lib/crtn.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o:
 
 /usr/include/wchar.h:
 
@@ -229,6 +275,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/sched.h:
 
 /usr/include/locale.h:
+
+/usr/lib/libglfw.so.3.4:
 
 /usr/include/linux/types.h:
 
@@ -249,6 +297,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
+
+/usr/lib/libstdc++.so:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
 
@@ -271,6 +321,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/c++/14.2.1/ios:
 
 /usr/include/c++/14.2.1/ext/numeric_traits.h:
+
+/usr/lib/libgcc_s.so.1:
 
 /usr/include/c++/14.2.1/typeinfo:
 
@@ -297,6 +349,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/c++/14.2.1/clocale:
 
 /usr/include/c++/14.2.1/cerrno:
+
+/usr/lib/libGLdispatch.so.0:
 
 /usr/include/c++/14.2.1/cctype:
 
@@ -372,17 +426,27 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 
 /usr/include/bits/types/struct___jmp_buf_tag.h:
 
+/usr/lib/libX11.so.6:
+
 /usr/include/bits/types/__fpos64_t.h:
 
 /usr/include/c++/14.2.1/bits/uses_allocator_args.h:
 
 /usr/include/bits/select.h:
 
+/usr/lib/libxcb.so.1:
+
+/usr/lib/libgcc_s.so:
+
 /usr/include/c++/14.2.1/bits/alloc_traits.h:
 
 /usr/include/asm/bitsperlong.h:
 
+/usr/lib/libXdmcp.so.6:
+
 /usr/include/c++/14.2.1/bits/nested_exception.h:
+
+/usr/lib/libOpenGL.so:
 
 /usr/include/sys/single_threaded.h:
 
@@ -401,6 +465,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/asm-generic/errno.h:
 
 /usr/include/c++/14.2.1/backward/binders.h:
+
+CMakeFiles/app.dir/main.cpp.o:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
 
@@ -460,6 +526,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 
 /usr/include/bits/cpu-set.h:
 
+/usr/lib/crti.o:
+
 /usr/include/bits/typesizes.h:
 
 /usr/include/c++/14.2.1/bits/functexcept.h:
@@ -475,6 +543,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/c++/14.2.1/bits/cxxabi_forced.h:
 
 /usr/include/asm-generic/int-ll64.h:
+
+thirdparty/glad/libglad.a:
 
 /usr/include/features.h:
 
@@ -516,6 +586,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 
 /usr/include/c++/14.2.1/bits/refwrap.h:
 
+/usr/lib/libdl.a:
+
 /usr/include/bits/types/struct_tm.h:
 
 /usr/include/c++/14.2.1/bits/locale_facets.h:
@@ -523,6 +595,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/bits/wchar.h:
+
+/usr/lib/Scrt1.o:
 
 /usr/include/c++/14.2.1/bits/localefwd.h:
 
@@ -550,9 +624,13 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 
 /usr/include/c++/14.2.1/bits/basic_string.tcc:
 
+/usr/lib/libXau.so.6:
+
 /usr/include/bits/uintn-identity.h:
 
 /usr/include/c++/14.2.1/bits/char_traits.h:
+
+/usr/lib/ld-linux-x86-64.so.2:
 
 /usr/include/c++/14.2.1/bits/concept_check.h:
 
@@ -563,6 +641,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/c++/14.2.1/iostream:
 
 /usr/include/c++/14.2.1/bits/memory_resource.h:
+
+/usr/lib/libmvec.so.1:
 
 /usr/include/c++/14.2.1/bits/cpp_type_traits.h:
 
@@ -599,6 +679,8 @@ CMakeFiles/app.dir/main.cpp.o: /home/kenefi/Documents/source/repos/testingC++/ma
 /usr/include/c++/14.2.1/bit:
 
 /usr/include/c++/14.2.1/bits/memoryfwd.h:
+
+/usr/lib/libm.so.6:
 
 /usr/include/c++/14.2.1/bits/stl_iterator_base_types.h:
 

@@ -21,6 +21,12 @@ const char *fragmentShaderSource = R"(
     }
 )";
 
+void key_callback(GLFWwindow *window, int key, int scancode, int action,
+                  int mods) {
+  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    glfwSetWindowShouldClose(window, GLFW_TRUE);
+}
+
 // Callback to adjust viewport on window resize
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
   glViewport(0, 0, width, height);
@@ -33,14 +39,15 @@ int main() {
   }
 
   // Create OpenGL Window
-  GLFWwindow *window = glfwCreateWindow(800, 600, "Triangle", NULL, NULL);
-  if (!window) {
+  GLFWwindow *_window = glfwCreateWindow(800, 600, "Triangle", NULL, NULL);
+  if (!_window) {
     std::cerr << "Failed to create GLFW window\n";
     glfwTerminate();
     return -1;
   }
-  glfwMakeContextCurrent(window);
-  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+  glfwMakeContextCurrent(_window);
+  glfwSetFramebufferSizeCallback(_window, framebuffer_size_callback);
+  glfwSetKeyCallback(_window, key_callback);
 
   // Load OpenGL functions using glad
   if (!gladLoadGL((GLADloadfunc)glfwGetProcAddress)) {
@@ -96,7 +103,7 @@ int main() {
   glBindVertexArray(0);
 
   // Render Loop
-  while (!glfwWindowShouldClose(window)) {
+  while (!glfwWindowShouldClose(_window)) {
     glClear(GL_COLOR_BUFFER_BIT);
 
     // Use shader program and draw triangle
@@ -106,7 +113,7 @@ int main() {
     glBindVertexArray(0);
 
     // Swap buffers and poll events
-    glfwSwapBuffers(window);
+    glfwSwapBuffers(_window);
     glfwPollEvents();
   }
 
@@ -114,7 +121,7 @@ int main() {
   glDeleteVertexArrays(1, &VAO);
   glDeleteBuffers(1, &VBO);
   glDeleteProgram(shaderProgram);
-  glfwDestroyWindow(window);
+  glfwDestroyWindow(_window);
   glfwTerminate();
 
   return 0;
