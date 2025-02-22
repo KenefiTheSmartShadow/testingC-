@@ -1,4 +1,5 @@
 #include <glm/glm.hpp>
+#include <ostream>
 
 #include "shader.h"
 
@@ -22,8 +23,19 @@ public:
 
   virtual ~Object() {}
 
+  friend std::ostream &operator<<(std::ostream &os, const Object &obj) {
+    os << obj._position.x << ", " << obj._position.y << "\n"
+       << obj._velocity.x << ", " << obj._velocity.y << "\n";
+    return os;
+  }
+
   void setPosition(glm::vec3 newPos) { _position = newPos; }
+  glm::vec3 getPosition() { return _position; }
+  static glm::vec3 getPosition(Object &object) { return object._position; }
+
   void setVelocity(glm::vec3 newVel) { _velocity = newVel; }
+  glm::vec3 getVelocity() { return _velocity; }
+  static glm::vec3 getVelocity(Object &object) { return object._velocity; }
 
   void createShader(const char *vertexPath, const char *fragmentPath) {
     if (vertexPath != nullptr && fragmentPath != nullptr)

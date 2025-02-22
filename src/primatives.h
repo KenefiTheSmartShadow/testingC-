@@ -17,10 +17,10 @@ private:
 
 public:
   float vertices[12] = {
-      _halfW + _position.x,  _halfH + _position.y,  0.0f, // top right
-      _halfW + _position.x,  -_halfH + _position.y, 0.0f, // bottom right
-      -_halfW + _position.x, -_halfH + _position.y, 0.0f, // bottom left
-      -_halfW + _position.x, _halfH + _position.y,  0.0f  // top left
+      _halfW,  _halfH,  0.0f, // top right
+      _halfW,  -_halfH, 0.0f, // bottom right
+      -_halfW, -_halfH, 0.0f, // bottom left
+      -_halfW, _halfH,  0.0f  // top left
   };
   unsigned int indices[6] = {0, 1, 3, 1, 2, 3};
 
@@ -41,6 +41,14 @@ public:
         Object(startingPosition, startingVelocity) {}
 
   ~Rectangle() { glDeleteProgram(_shader.ID); }
+
+  friend std::ostream &operator<<(std::ostream &os, const Rectangle &rect) {
+    os << rect._position.x << ", " << rect._position.y << "\n"
+       << rect._velocity.x << ", " << rect._velocity.y << "\n"
+       << "Width: " << rect._width << "\n"
+       << "Height: " << rect._height << "\n";
+    return os;
+  }
 
   void createShader(const char *vertexPath, const char *fragmentPath) {
     Object::createShader(vertexPath, fragmentPath);
@@ -111,10 +119,15 @@ public:
     _width = width ? width >= 0 : 0;
     _halfW = width / 2.f;
   }
+  float getWidth() { return _width; }
+  static float getWidth(Rectangle &rectangle) { return rectangle._width; }
+
   void setHeight(float height) {
     _height = height ? height >= 0 : 0;
     _halfH = height / 2.f;
   }
+  float getHeight() { return _height; }
+  static float getHeight(Rectangle &rectangle) { return rectangle._height; }
 }; // end Rectangle
 //
 //
@@ -150,12 +163,18 @@ public:
 
   ~Circle() { glDeleteProgram(_shader.ID); }
 
+  friend std::ostream &operator<<(std::ostream &os, const Circle &circ) {
+    os << circ._position.x << ", " << circ._position.y << "\n"
+       << circ._velocity.x << ", " << circ._velocity.y << "\n"
+       << "Radius: " << circ._radius << "\n";
+    return os;
+  }
   void move() {
     _position += _velocity;
-    collision_check();
+    screenBoundryCheck();
   }
 
-  void collision_check() {
+  void screenBoundryCheck() {
     if (_position.x + _radius >= 1 || _position.x - _radius <= -1)
       _velocity.x *= -1;
     if (_position.y + _radius >= 1 || _position.y - _radius <= -1)
@@ -210,6 +229,20 @@ public:
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+  }
+
+  void checkRectangleCollision(Rectangle &otherRectangle) {
+    glm::vec3 rectPos = otherRectangle.getPosition();
+    glm::vec2 rectSize =
+        glm::vec2(otherRectangle.getWidth(), otherRectangle.getHeight());
+    if ((_position.y > rectPos.y - rectSize.y / 2) &&
+        (_position.y < rectPos.y + rectSize.y / 2))
+      if (_position.x + _radius < rectPos.x + rectSize.x / 2)
+        _velocity.x *= -1;
+  }
+  void checkCircleCollision(Circle otherCircle) {
+    // TODO Check velocity vectors and change based off where the circles
+    // collided with one another
   }
 }; // end Circle
 //
