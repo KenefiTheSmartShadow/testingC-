@@ -8,7 +8,9 @@ find_package(OpenGL REQUIRED)
 
 add_subdirectory("thirdparty/glad")
 
-add_executable(app src/main.cpp)
+set(sources src/main.cpp src/circle.cpp src/rectangle.cpp)
+
+add_executable(app ${sources})
 target_link_libraries(app PRIVATE glfw glad glm OpenGL::GL dl)
 
 set(SHADER_DIR "${CMAKE_SOURCE_DIR}/resources/shaders")

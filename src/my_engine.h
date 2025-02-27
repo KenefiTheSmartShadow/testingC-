@@ -5,7 +5,7 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "primatives.h"
+#include "ai_player.h"
 
 class My_Engine {
 public:
@@ -36,6 +36,11 @@ public:
     _ball.createShader("../resources/shaders/ball.vert",
                        "../resources/shaders/ball.frag");
 
+    _aiPlayer =
+        AIPlayer(0.1, 0.42, 0.02, glm::vec3(0.86, 0, 0), glm::vec3(0, 0.02, 0));
+    _aiPlayer.createShader("../resources/shaders/AIpaddle.vert",
+                           "../resources/shaders/AIpaddle.frag");
+
     glfwSwapInterval(1);
     glDisable(GL_DEPTH_TEST);
     while (!glfwWindowShouldClose(_window)) {
@@ -45,11 +50,15 @@ public:
       glClear(GL_COLOR_BUFFER_BIT);
 
       _ball.checkRectangleCollision(_paddle);
+      _ball.checkRectangleCollision(_aiPlayer);
+
+      _aiPlayer.draw();
+      _aiPlayer.move(_ball.getPosition());
 
       _paddle.draw();
       /*cout << _paddle << "\n";*/
-      /*cout << _ball << "\n";*/
       _ball.draw(glm::vec2(_width, _height));
+      /*cout << _ball << "\n";*/
 
       hasGoalHappened();
 
@@ -64,6 +73,7 @@ public:
 private:
   Rectangle _paddle;
   Circle _ball;
+  AIPlayer _aiPlayer;
   GLFWwindow *_window;
   int _width = 800, _height = 600;
 
