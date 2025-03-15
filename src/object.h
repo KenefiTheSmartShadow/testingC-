@@ -6,11 +6,11 @@
 class Object {
 private:
 protected:
-  glm::vec3 _position;
-  glm::vec3 _velocity;
   Shader _shader;
 
 public:
+  glm::vec3 _position;
+  glm::vec3 _velocity;
   float vertices[0];
   unsigned int indices[0];
   Object() : _position{glm::vec3(0)}, _velocity{glm::vec3(0)} {}

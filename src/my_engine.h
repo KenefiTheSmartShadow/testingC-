@@ -2,6 +2,10 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
+#include <imgui.h>
+
 #include <iostream>
 #include <stdio.h>
 
@@ -24,6 +28,18 @@ public:
     if (!gladLoadGL((GLADloadfunc)glfwGetProcAddress)) {
       std::cerr << "Failed to initialize GLAD\n";
     }
+
+    // Setup Dear ImGui
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    io.ConfigFlags |=
+        ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
+    ImGui::StyleColorsDark();
+
+    ImGui_ImplOpenGL3_Init();
+    ImGui_ImplGlfw_InitForOpenGL(_window, true);
   }
 
   void run() {
@@ -43,11 +59,33 @@ public:
 
     glfwSwapInterval(1);
     glDisable(GL_DEPTH_TEST);
+
     while (!glfwWindowShouldClose(_window)) {
+
       glfwGetWindowSize(_window, &_width, &_height);
 
       processInput(_window);
       glClear(GL_COLOR_BUFFER_BIT);
+
+      // Start the Dear ImGui frame
+      ImGui_ImplOpenGL3_NewFrame();
+      ImGui_ImplGlfw_NewFrame();
+      ImGui::NewFrame();
+      ImGui::Begin("Options");
+
+      ImGui::DragFloat3("Paddle 1 Pos", &_paddle._position.x);
+      ImGui::DragFloat3("Paddle 2 Pos", &_aiPlayer._position.x);
+      ImGui::DragFloat3("Ball Pos", &_ball._position.x);
+      ImGui::Checkbox("Pause Rendering", &pauseRendering);
+
+      ImGui::End();
+
+      ImGui::Render();
+      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+      glfwPollEvents();
+      if (pauseRendering)
+        continue;
 
       _ball.checkRectangleCollision(_paddle);
       _ball.checkRectangleCollision(_aiPlayer);
@@ -64,7 +102,6 @@ public:
 
       // Swap buffers and poll events
       glfwSwapBuffers(_window);
-      glfwPollEvents();
     }
     glfwDestroyWindow(_window);
     glfwTerminate();
@@ -76,15 +113,24 @@ private:
   AIPlayer _aiPlayer;
   GLFWwindow *_window;
   int _width = 800, _height = 600;
+  bool pauseRendering = false;
 
   void hasGoalHappened() {
     if (_ball.getPosition().x < _paddle.getPosition().x - _paddle.getWidth())
+      _ball.setPosition(glm::vec3(0));
+    else if (_ball.getPosition().x >
+             _aiPlayer.getPosition().x + _aiPlayer.getWidth())
       _ball.setPosition(glm::vec3(0));
   }
 
   void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
       glfwSetWindowShouldClose(window, true);
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) // pause rendering
+      pauseRendering = true;
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) // resume rendering
+      pauseRendering = false;
+
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
       _paddle.move(1);
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
