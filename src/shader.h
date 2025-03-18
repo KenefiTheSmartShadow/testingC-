@@ -1,3 +1,5 @@
+#pragma once
+
 #include <fstream>
 #include <glad/gl.h>
 #include <glm/glm.hpp>

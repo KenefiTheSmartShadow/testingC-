@@ -1,3 +1,5 @@
+#pragma once
+
 #include <glad/gl.h>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
@@ -10,6 +12,7 @@
 #include <stdio.h>
 
 #include "ai_player.h"
+#include "text_renderer.h"
 
 class My_Engine {
 public:
@@ -57,6 +60,9 @@ public:
     _aiPlayer.createShader("../resources/shaders/AIpaddle.vert",
                            "../resources/shaders/AIpaddle.frag");
 
+    _textRenderer =
+        textRenderer("../resources/font/Font Awesome 6 Free-Regular-400.otf");
+
     glfwSwapInterval(1);
     glDisable(GL_DEPTH_TEST);
 
@@ -100,6 +106,9 @@ public:
 
       hasGoalHappened();
 
+      _textRenderer.renderText("testing", glm::vec3(0.0, 0.0, 0.0),
+                               glm::vec3(0.0, 0.0, 0.0));
+
       // Swap buffers and poll events
       glfwSwapBuffers(_window);
     }
@@ -114,6 +123,7 @@ private:
   GLFWwindow *_window;
   int _width = 800, _height = 600;
   bool pauseRendering = false;
+  textRenderer _textRenderer;
 
   void hasGoalHappened() {
     if (_ball.getPosition().x < _paddle.getPosition().x - _paddle.getWidth())
